@@ -148,6 +148,11 @@ dialog[open] .selectAvatar {
     grid-template-columns: auto auto;
 }
 
+.contactCard:hover {
+    border-color: var(--color-4);
+    color: var(--color-4);
+}
+
 .contactCard img {
     width: 100px;
     height: 100px;

@@ -41,7 +41,7 @@ $user = $_SESSION["User"];
                         <input type="text" name="Surnames" placeholder="Surnames" class="basicInput">
                         <input type="text" name="PhoneNumber" placeholder="Phone Number" class="basicInput">
                         <div class="selectAvatar">
-                            <label for="avatar" class="button">Select Avatar</label>
+                            <label for="formAvatar" class="button">Select Avatar</label>
                             <input type="file" id="formAvatar" name="avatar" accept="image/png, image/jpeg" />
                         </div>
                         <div>
