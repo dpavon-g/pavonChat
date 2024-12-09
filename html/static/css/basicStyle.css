@@ -1,0 +1,96 @@
+/* Estilo texto como lineas */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+/* Estilo texto maquina */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Wallpoet&display=swap');
+
+/* Estilo minimalista */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+:root {
+    --color-1: #5079F2;
+    --color-2: #5C8EF2;
+    --color-3: #21BF75;
+    --color-4: #F26716;
+    --color-fondo: #262626;
+    --color-claro: #bdadad;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header a h1 {
+    background-color: var(--color-fondo);
+    color: var(--color-3);
+    border: var(--color-3) 1px solid;
+    border-radius: 40px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 30px;
+}
+
+.nunito {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+footer{
+    color: var(--color-3);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    flex: 1;
+}
+
+.basicInput {
+    background-color: #262626;
+    border: var(--color-3) 1px solid;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    color: var(--color-4);
+}
+
+.basicInput:focus {
+    outline: var(--color-4) 1px solid;
+    border: none;
+}
+
+.button {
+    border: 1px solid var(--color-3);
+    color: var(--color-3);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--color-fondo);
+
+}
+
+.button:hover {
+    cursor: pointer;
+    color: var(--color-4);
+    border-color: var(--color-4);
+}
+
