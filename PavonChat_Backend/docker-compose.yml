@@ -7,7 +7,7 @@ services:
       ports:
         - "8080:80"
       volumes:
-        - ../html:/var/www/html
+        - ../frontend:/var/www/html
         - ./apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
 
   db:
@@ -20,6 +20,7 @@ services:
       MYSQL_PASSWORD: passdb
     volumes:
       - db_data:/var/lib/mysql
+      - ./init-sql:/docker-entrypoint-initdb.d/
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

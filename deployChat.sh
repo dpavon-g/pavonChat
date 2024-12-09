@@ -1,4 +1,4 @@
-cd docker_deployer
+cd PavonChat_Backend
 
 echo "Deploying PavonChat"
 
