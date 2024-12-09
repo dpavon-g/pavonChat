@@ -87,3 +87,26 @@ function saveAvatar($user)
 
     return $user;
 }
+
+function crearContacto($body) {
+    $db = createDB();
+    $contactoDB = new Contacto($db);
+
+    $contacto = array(
+        "Name" => $body["Name"],
+        "Surnames" => $body["Surnames"],
+        "PhoneNumber" => $body["PhoneNumber"],
+        "UserID" => $_SESSION["User"]["id"]
+    );
+
+    if (!isset($_FILES["avatar"]["name"]) || empty($_FILES["avatar"]["name"])) {
+        $contacto["Avatar"] = "gatito.jpg";
+    } else {
+        $contacto["Avatar"] = $_FILES["avatar"]["name"];
+        $avatar = $_FILES["avatar"]["name"];
+        $rutaTemporal = $_FILES["avatar"]["tmp_name"];
+        move_uploaded_file($rutaTemporal, __DIR__ . "/../static/avatars/${avatar}");
+    }
+
+    $contactoDB->createContact($contacto);
+}

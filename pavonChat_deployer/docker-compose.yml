@@ -7,7 +7,7 @@ services:
       ports:
         - "8080:80"
       volumes:
-        - ../frontend:/var/www/html
+        - ../code:/var/www/html
         - ./apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
 
   db:

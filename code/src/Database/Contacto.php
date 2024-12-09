@@ -25,4 +25,20 @@
                 return false;
             }
         }
+
+        public function createContact($contacto) {
+            try {
+                $table = $this->_table;
+                $conexion = $this->_DB->getConexion();
+                $sql = "INSERT INTO ${table} (name, surnames, phoneNumber, photo, userContactId) VALUES (?, ?, ?, ?, ?)";
+                $stmt = $conexion->prepare($sql);
+                $stmt->bind_param('ssssi', $contacto["Name"], $contacto["Surnames"], $contacto["PhoneNumber"], $contacto["Avatar"], $contacto["UserID"]);
+                $stmt->execute();
+                $stmt->close();
+                $conexion->close();
+                return true;
+            } catch (Exception $e) {
+                return false;
+            }
+        }
     }

@@ -81,7 +81,7 @@ section {
 }
 
 dialog[open] {
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 20px;
     position: grid;
     align-items: center;
@@ -104,16 +104,19 @@ dialog[open] {
 }
 
 dialog[open] form {
+    padding-top: 10px;
+    padding-bottom: 20px;
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: auto;
-    gap: 10px;
+    gap: 25px;
+
 }
 
 dialog[open] div {
     display: grid;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     grid-template-columns: auto auto;
     gap: 20px;
@@ -129,3 +132,6 @@ dialog[open] #formAvatar {
     visibility: hidden;
 }
 
+dialog[open] .selectAvatar {
+    margin-bottom: 20px;
+}
