@@ -65,14 +65,10 @@ $user = $_SESSION["User"];
             <?php
             $db = createDB();
             $contactoDB = new Contacto($db);
-            $contacts = $contactoDB->getContactsById($user["ID"]);
+            $contacts = $contactoDB->getContactsById($user["id"]);
             if ($contacts->num_rows > 0) {
                 while ($contact = $contacts->fetch_assoc()) {
-
-                    // echo "<div class='contact'>";
-                    // echo "<img src='static/icons/user.svg' alt='User'>";
-                    // echo "<p>${contact["name"]}</p>";
-                    // echo "</div>";
+                    drawContact($contact);
                 }
             }
             ?>

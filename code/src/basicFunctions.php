@@ -110,3 +110,14 @@ function crearContacto($body) {
 
     $contactoDB->createContact($contacto);
 }
+
+function drawContact($contact) {
+    echo "
+        <a href='chat.php?contactID=${contact["id"]}' class='contactCard'>
+            <img src='static/avatars/${contact["photo"]}' alt='Avatar'>
+            <div>
+                <h3>${contact["name"]} ${contact["surnames"]}</h3>
+                <p>${contact["phoneNumber"]}</p>
+            </div>
+        </a>";
+}
