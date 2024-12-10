@@ -13,8 +13,9 @@
             $userDB = new User($db);
             $username = $_POST["Username"];
             $password = $_POST["Password"];
-            if ($userDB->checkUser($username, $password) > 0) {
-                $_SESSION["User"] = $userDB->getUserByPhoneNumber($username);
+            $user = $userDB->getUserByPhoneNumber($username);
+            if (password_verify($password, $user["passwd"])) {
+                $_SESSION["User"] = $user;
                 header("Location: index.php");
             }
         }

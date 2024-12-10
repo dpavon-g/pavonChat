@@ -4,8 +4,8 @@ USE myDB;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    phoneNumber VARCHAR(15) NOT NULL,
-    passwd VARCHAR(20) NOT NULL,
+    phoneNumber VARCHAR(15) NOT NULL UNIQUE,
+    passwd VARCHAR(100) NOT NULL,
     avatar VARCHAR(50)
 );
 
@@ -17,7 +17,7 @@ create TABLE IF NOT EXISTS contactos (
     photo VARCHAR(50),
     userContactId int,
     FOREIGN KEY (userContactId) REFERENCES users(id),
-    FOREIGN KEY (phoneNumber), REFERENCES users(phoneNumber)
+    FOREIGN KEY (phoneNumber) REFERENCES users(phoneNumber)
 );
 
 create TABLE IF NOT EXISTS mensajes (

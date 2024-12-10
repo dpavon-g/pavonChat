@@ -30,6 +30,7 @@
                 $status["Message"] = "Username already exists";
             } else {
                 $user = saveAvatar($user);
+                $user["Password"] = password_hash($user["Password"], PASSWORD_DEFAULT);
                 if ($userDB->createAccount($user) == false) {
                     $status["Error"] = true;
                     $status["Message"] = "Error creating account";
