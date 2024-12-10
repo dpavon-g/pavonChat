@@ -93,7 +93,8 @@ function saveAvatar($user)
 function crearContacto($body) {
     $db = createDB();
     $contactoDB = new Contacto($db);
-
+    $userDB = new User($db);
+    
     $contacto = array(
         "Name" => $body["Name"],
         "Surnames" => $body["Surnames"],
@@ -101,16 +102,22 @@ function crearContacto($body) {
         "UserID" => $_SESSION["User"]["id"]
     );
 
-    if (!isset($_FILES["avatar"]["name"]) || empty($_FILES["avatar"]["name"])) {
-        $contacto["Avatar"] = "gatito.jpg";
-    } else {
-        $contacto["Avatar"] = $_FILES["avatar"]["name"];
-        $avatar = $_FILES["avatar"]["name"];
-        $rutaTemporal = $_FILES["avatar"]["tmp_name"];
-        move_uploaded_file($rutaTemporal, __DIR__ . "/../static/avatars/${avatar}");
+    if ($userDB->checkUserByUsername($contacto["PhoneNumber"]) > 0) {
+        if (!isset($_FILES["avatar"]["name"]) || empty($_FILES["avatar"]["name"])) {
+            $contacto["Avatar"] = "gatito.jpg";
+        } else {
+            $contacto["Avatar"] = $_FILES["avatar"]["name"];
+            $avatar = $_FILES["avatar"]["name"];
+            $rutaTemporal = $_FILES["avatar"]["tmp_name"];
+            move_uploaded_file($rutaTemporal, __DIR__ . "/../static/avatars/${avatar}");
+        }
+    
+        $contactoDB->createContact($contacto);
     }
-
-    $contactoDB->createContact($contacto);
+    else {
+        return false;
+    }
+    return true;
 }
 
 function drawContact($contact) {

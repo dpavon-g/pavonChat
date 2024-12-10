@@ -95,3 +95,10 @@ dialog[open] .selectAvatar {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
+#errorMsg {
+    color: var(--color-4);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}

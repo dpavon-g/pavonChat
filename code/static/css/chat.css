@@ -5,6 +5,12 @@
     margin-right: 10px;
 }
 
+main {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     color: var(--color-3);
     font-family: "Nunito Sans", sans-serif;
@@ -18,6 +24,7 @@ body {
     margin: 20px;
     padding: 20px;
     height: 75vh;
+    max-width: 1092px;
 }
 
 #contactImageName {
@@ -95,3 +102,10 @@ body {
     gap: 20px;
     padding-right: 20px;
 }
+/* 
+@media (min-width: 1092px) {
+    #contactChat {
+        background-color: red;
+    }
+}
+   */

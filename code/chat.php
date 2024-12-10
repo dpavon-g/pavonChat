@@ -44,10 +44,16 @@
                         <p class="nunito fecha">10:07</p>
                     </div>
                 </div>
+                <div class="mensajeRight">
+                    <div class="mensaje">
+                        <p class="nunito">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, eum amet cumque doloribus enim commodi id at accusamus expedita quos cum velit saepe eaque dicta incidunt delectus obcaecati inventore minus!</p>
+                        <p class="nunito fecha">10:07</p>
+                    </div>
+                </div>
             </div>
             <div id="sendMensaje">
                 <form action="?" method="post">
-                    <input type="text" name="mensaje" id="mensaje" class="basicInput writeMSG" placeholder="Write a message...">
+                    <input type="text" autocomplete="off" name="mensaje" id="mensaje" class="basicInput writeMSG" placeholder="Write a message...">
                     <input type='submit' value='Send' class='button'>
                     <input type="hidden" name="mensajeEnviado" value="mensajeEnviado">
                 </form>

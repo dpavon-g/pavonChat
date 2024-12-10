@@ -7,12 +7,18 @@ require_once("src/Database/Contacto.php");
 session_start();
 checkUser();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $status = array();
+    $status["error"] = false;
     if (isset($_POST["LogOut"])) {
         session_destroy();
         header("Location: login.php");
     }
     else if (isset($_POST["crearContacto"])) {
-        crearContacto($_POST);
+        if (!crearContacto($_POST)) {
+            $status["error"] = true;
+            $user = $_POST["PhoneNumber"];
+            $status["message"] = "Error, user ${user} doesn't exist.";
+        }
     }
 }
 $user = $_SESSION["User"];
@@ -38,9 +44,9 @@ $user = $_SESSION["User"];
             <dialog id='modal'>
                     <h2>CREAR CONTACTO</h2>
                     <form method='POST' action='?' enctype="multipart/form-data">
-                        <input type="text" name="Name" placeholder="Name" class="basicInput">
-                        <input type="text" name="Surnames" placeholder="Surnames" class="basicInput">
-                        <input type="text" name="PhoneNumber" placeholder="Phone Number" class="basicInput">
+                        <input type="text" autocomplete="off" name="Name" placeholder="Name" class="basicInput">
+                        <input type="text" autocomplete="off" name="Surnames" placeholder="Surnames" class="basicInput">
+                        <input type="text" autocomplete="off" name="PhoneNumber" placeholder="Phone Number" class="basicInput">
                         <div class="selectAvatar">
                             <label for="formAvatar" class="button">Select Avatar</label>
                             <input type="file" id="formAvatar" name="avatar" accept="image/png, image/jpeg" />
@@ -61,6 +67,14 @@ $user = $_SESSION["User"];
                     document.getElementById('modal').close();
                 });
             </script>
+        </section>
+        <section id="errorMsg">
+            <?php
+                if ($status["error"] == true) {
+                    $msg = $status["message"];
+                    echo "<h3> ${msg} </h3>";
+                }
+            ?>
         </section>
         <section id="contacts">
             <?php
