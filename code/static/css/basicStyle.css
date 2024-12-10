@@ -60,6 +60,14 @@ a {
     color: white;
 }
 
+footer a {
+    color: var(--color-3);
+}
+
+footer a:hover {
+    color: var(--color-4);
+}
+
 main {
     flex: 1;
 }

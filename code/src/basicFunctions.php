@@ -40,7 +40,9 @@ function setFooter()
 {
     echo "
             <footer>
-                <h3 class='nunito'>© Proyecto desarrollado por Daniel Pavón</h3>
+                <a href='https://es.linkedin.com/in/pavondaniel' target='_blank'>
+                    <h3 class='nunito'>© Proyecto desarrollado por Daniel Pavón</h3>
+                </a>
             </footer>
         ";
 }

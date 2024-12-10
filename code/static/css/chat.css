@@ -1,0 +1,97 @@
+#chatAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+body {
+    color: var(--color-3);
+    font-family: "Nunito Sans", sans-serif;
+}
+
+#contactChat {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-3);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    height: 75vh;
+}
+
+#contactImageName {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#contactInfo {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: auto auto;
+    border-bottom: 1px solid var(--color-3);
+}
+
+#mensajes {
+    flex: 1;
+    overflow-y: scroll;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.mensajeLeft {
+    display: grid;
+    justify-content: start;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    margin-right: auto;
+}
+
+.mensajeRight {
+    display: grid;
+    justify-content: end;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    margin-left: auto;
+}
+
+
+.mensaje {
+    margin: 10px;
+    margin-top: 20px;
+    font-size: 1.5em;
+    display: grid;
+    border: 1px solid var(--color-3);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.mensaje .fecha {
+    text-align: right;
+    color: var(--color-1);
+}
+
+#sendMensaje {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+}
+
+#sendMensaje form {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    padding-right: 20px;
+}

@@ -25,6 +25,7 @@ $user = $_SESSION["User"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/basicStyle.css">
     <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/header.css">
     <link rel="shortcut icon" href="static/icons/logo.svg">
     <title>Pavon Chat</title>
 </head>
