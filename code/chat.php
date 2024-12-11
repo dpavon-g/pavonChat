@@ -30,6 +30,7 @@
             $mensaje["remitenteId"] = $_SESSION["User"]["id"];
             $mensaje["receptorId"] = $_POST["mensajeEnviado"];
             $DBMensajes->createMessage($mensaje);
+            header("Location: chat.php?contactID=${destinatarioId}");
         }
     }
     $user = $_SESSION["User"];
@@ -49,15 +50,6 @@
     <?php setHeaderIndex($user) ?>
     <main>
         <section id="contactChat">
-            <?php
-                $conversacion = $DBMensajes->getConversation($_SESSION["User"]["id"], $destinatarioId);
-                if ($conversacion->num_rows > 0) {
-                    while ($mensaje = $conversacion->fetch_assoc()) {
-                        // drawContact($contact);
-                        // echo $mensaje["mensaje"];
-                    }
-                }
-            ?>
             <div id="contactInfo">
                 <div id="contactImageName">
                     <img id="chatAvatar" src="static/avatars/miau.jpeg" alt="User">
@@ -74,24 +66,27 @@
                 </h2>
             </div>
             <div id="mensajes">
-                <div class="mensajeLeft">
-                    <div class="mensaje">
-                        <p class="nunito">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, eum amet cumque doloribus enim commodi id at accusamus expedita quos cum velit saepe eaque dicta incidunt delectus obcaecati inventore minus!</p>
-                        <p class="nunito fecha">10:07</p>
-                    </div>
-                </div>
-                <div class="mensajeRight">
-                    <div class="mensaje">
-                        <p class="nunito">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, eum amet cumque doloribus enim commodi id at accusamus expedita quos cum velit saepe eaque dicta incidunt delectus obcaecati inventore minus!</p>
-                        <p class="nunito fecha">10:07</p>
-                    </div>
-                </div>
-                <div class="mensajeRight">
-                    <div class="mensaje">
-                        <p class="nunito">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, eum amet cumque doloribus enim commodi id at accusamus expedita quos cum velit saepe eaque dicta incidunt delectus obcaecati inventore minus!</p>
-                        <p class="nunito fecha">10:07</p>
-                    </div>
-                </div>
+                <?php
+                    $conversacion = $DBMensajes->getConversation($_SESSION["User"]["id"], $destinatarioId);
+                    if ($conversacion->num_rows > 0) {
+                        while ($mensaje = $conversacion->fetch_assoc()) {
+                            $fecha = new DateTime($mensaje["fecha_envio"]);
+                            $hora = $fecha->format("H:i:s");
+                            if ($mensaje["remitente_id"] == $_SESSION["User"]["id"])
+                                $tipoMensaje = "mensajeRight";
+                            else
+                                $tipoMensaje = "mensajeLeft";
+                            echo "
+                                <div class='${tipoMensaje}'>
+                                    <div class='mensaje'>
+                                        <p class='nunito'>${mensaje["mensaje"]}</p>
+                                        <p class='nunito fecha'>${hora}</p>
+                                    </div>
+                                </div>
+                            ";
+                        }
+                    }
+                ?>
             </div>
             <div id="sendMensaje">
                 <?php

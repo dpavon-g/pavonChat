@@ -32,7 +32,6 @@ body {
     align-items: center;
     grid-template-columns: auto auto;
     justify-content: space-between;
-    margin-bottom: 15px;
 }
 
 #contactInfo {
@@ -41,6 +40,13 @@ body {
     align-items: center;
     grid-template-columns: auto auto;
     border-bottom: 1px solid var(--color-3);
+    padding-bottom: 15px;
+}
+
+#contactInfo h2 {
+    display: grid;
+    justify-content: start;
+    align-items: center;
 }
 
 #mensajes {
@@ -109,3 +115,7 @@ body {
     }
 }
    */
+
+.fecha {
+    font-size: 0.7rem;
+}
