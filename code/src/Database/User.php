@@ -26,6 +26,22 @@
             }
         }
 
+        public function getUserById($id) {
+            try {
+                $table = $this->_table;
+                $conexion = $this->_DB->getConexion();
+                $sql = "SELECT * from ${table} WHERE id = (?)";
+                $stmt = $conexion->prepare($sql);
+                $stmt->bind_param('i', $id);
+                $stmt->execute();
+                $resultado = $stmt->get_result();
+                $stmt->close();
+                $conexion->close();
+                return $resultado->fetch_assoc();
+            } catch (Exception $e) {
+                return false;
+            }
+        }
 
         public function checkUserByUsername($username) {
             try {

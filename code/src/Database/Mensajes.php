@@ -9,30 +9,37 @@
             $this->_DB = $DB;
         }
 
-        // public function getConversation($userID) {
-        //     try {
-        //         $table = $this->_table;
-        //         $conexion = $this->_DB->getConexion();
-        //         $sql = "SELECT * from ${table} WHERE userContactId = (?)";
-        //         $stmt = $conexion->prepare($sql);
-        //         $stmt->bind_param('i', $userID);
-        //         $stmt->execute();
-        //         $resultado = $stmt->get_result();
-        //         $stmt->close();
-        //         $conexion->close();
-        //         return $resultado;
-        //     } catch (Exception $e) {
-        //         return false;
-        //     }
-        // }
+        public function getConversation($remitenteId, $receptorId) {
+            try {
+                $table = $this->_table;
+                $conexion = $this->_DB->getConexion();
+                $sql = "SELECT * 
+                        FROM ${table}
+                        WHERE 
+                            (remitente_id = (?) AND receptor_id = (?)) 
+                            OR 
+                            (remitente_id = (?) AND receptor_id = (?))
+                        ORDER BY fecha_envio ASC;
+                        ";
+                $stmt = $conexion->prepare($sql);
+                $stmt->bind_param('iiii', $remitenteId, $receptorId, $receptorId, $remitenteId);
+                $stmt->execute();
+                $resultado = $stmt->get_result();
+                $stmt->close();
+                $conexion->close();
+                return $resultado;
+            } catch (Exception $e) {
+                return false;
+            }
+        }
 
         public function createMessage($mensaje) {
             try {
                 $table = $this->_table;
                 $conexion = $this->_DB->getConexion();
-                $sql = "INSERT INTO ${table} (remitente_id, receptor_id, mensaje) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO ${table} (mensaje, remitente_id, receptor_id) VALUES (?, ?, ?)";
                 $stmt = $conexion->prepare($sql);
-                $stmt->bind_param('iis', $mensaje["mensaje"], $mensaje["remitenteId"], $mensaje["receptorId"]);
+                $stmt->bind_param('sii', $mensaje["mensaje"], $mensaje["remitenteId"], $mensaje["receptorId"]);
                 $stmt->execute();
                 $stmt->close();
                 $conexion->close();

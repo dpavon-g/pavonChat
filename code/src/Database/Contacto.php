@@ -9,13 +9,38 @@
             $this->_DB = $DB;
         }
 
+        public function getFullContactInfo($contactID) {
+            try {
+                $table = $this->_table;
+                $conexion = $this->_DB->getConexion();
+                $sql = "SELECT ${table}.*, users.id AS userId, users.* 
+                        FROM ${table} 
+                        INNER JOIN users ON ${table}.phoneNumber = users.phoneNumber 
+                        WHERE users.id = (?)";
+            
+                $stmt = $conexion->prepare($sql);
+                $stmt->bind_param('i', $contactID); 
+                $stmt->execute();
+                $resultado = $stmt->get_result();
+                $stmt->close();
+                $conexion->close();
+                return $resultado->fetch_assoc();
+            } catch (Exception $e) {
+                return false;
+            }
+        }
+
         public function getContactsById($userID) {
             try {
                 $table = $this->_table;
                 $conexion = $this->_DB->getConexion();
-                $sql = "SELECT * from ${table} WHERE userContactId = (?)";
+                $sql = "SELECT ${table}.*, users.id AS userId, users.* 
+                        FROM ${table} 
+                        INNER JOIN users ON ${table}.phoneNumber = users.phoneNumber 
+                        WHERE ${table}.userContactId = (?)";
+            
                 $stmt = $conexion->prepare($sql);
-                $stmt->bind_param('i', $userID);
+                $stmt->bind_param('i', $userID); 
                 $stmt->execute();
                 $resultado = $stmt->get_result();
                 $stmt->close();
