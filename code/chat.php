@@ -52,7 +52,9 @@
         <section id="contactChat">
             <div id="contactInfo">
                 <div id="contactImageName">
-                    <img id="chatAvatar" src="static/avatars/miau.jpeg" alt="User">
+                    <?php
+                        echo "<img id='chatAvatar' src='static/avatars/${destinatarioUser["photo"]}' alt='User'>";
+                    ?>
                     <h2 class="nunito">
                         <?php
                             echo $destinatarioUser["name"] . " " . $destinatarioUser["surnames"];
@@ -102,5 +104,26 @@
         </section>
     </main>
     <?php setFooter() ?>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let mensajesDiv = document.getElementById('mensajes');
+            mensajesDiv.scrollTop = mensajesDiv.scrollHeight;
+
+            let timeout;
+            const resetTimeout = () => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    const inputField = document.getElementById('mensaje');
+                    if (!inputField.value.trim()) {
+                        location.reload();
+                    }
+                }, 5000);
+            };
+
+            const inputField = document.getElementById('mensaje');
+            inputField.addEventListener('input', resetTimeout);
+            resetTimeout();
+        });
+    </script>
 </body>
 </html>
