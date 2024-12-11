@@ -9,11 +9,7 @@ main {
     display: grid;
     justify-content: center;
     align-items: center;
-}
-
-body {
-    color: var(--color-3);
-    font-family: "Nunito Sans", sans-serif;
+    grid-template-columns: 1fr;
 }
 
 #contactChat {
@@ -24,8 +20,13 @@ body {
     margin: 20px;
     padding: 20px;
     height: 75vh;
-    max-width: 1092px;
 }
+
+body {
+    color: var(--color-3);
+    font-family: "Nunito Sans", sans-serif;
+}
+
 
 #contactImageName {
     display: grid;
@@ -108,14 +109,13 @@ body {
     gap: 20px;
     padding-right: 20px;
 }
-/* 
-@media (min-width: 1092px) {
-    #contactChat {
-        background-color: red;
-    }
-}
-   */
 
 .fecha {
     font-size: 0.7rem;
+}
+
+@media (min-width: 1092px) {
+    main {
+      grid-template-columns: 1092px;
+    }
 }
