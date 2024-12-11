@@ -114,7 +114,8 @@
                 clearTimeout(timeout);
                 timeout = setTimeout(() => {
                     const inputField = document.getElementById('mensaje');
-                    if (!inputField.value.trim()) {
+                    const isScrolledToBottom = mensajesDiv.scrollHeight - mensajesDiv.scrollTop === mensajesDiv.clientHeight;
+                    if (!inputField.value.trim() && isScrolledToBottom) {
                         location.reload();
                     }
                 }, 5000);
@@ -122,8 +123,10 @@
 
             const inputField = document.getElementById('mensaje');
             inputField.addEventListener('input', resetTimeout);
+            mensajesDiv.addEventListener('scroll', resetTimeout);
             resetTimeout();
         });
+
     </script>
 </body>
 </html>
