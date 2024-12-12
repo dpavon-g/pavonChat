@@ -3,7 +3,7 @@
 
     class Contacto {
         private $_DB;
-        private $_table = "contactos";
+        private $_table = "contacts";
 
         public function __construct($DB) {
             $this->_DB = $DB;

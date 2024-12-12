@@ -102,3 +102,6 @@ main {
     border-color: var(--color-4);
 }
 
+#love {
+    color: rgb(250, 99, 99);
+}

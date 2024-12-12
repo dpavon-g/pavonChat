@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
     avatar VARCHAR(50)
 );
 
-create TABLE IF NOT EXISTS contactos (
+create TABLE IF NOT EXISTS contacts (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(50),
     surnames VARCHAR(50),
@@ -20,7 +20,7 @@ create TABLE IF NOT EXISTS contactos (
     FOREIGN KEY (phoneNumber) REFERENCES users(phoneNumber)
 );
 
-create TABLE IF NOT EXISTS mensajes (
+create TABLE IF NOT EXISTS messages (
     id INT AUTO_INCREMENT PRIMARY KEY,
     remitente_id INT NOT NULL,
     receptor_id INT NOT NULL,
