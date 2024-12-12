@@ -61,3 +61,11 @@ If you want to see the database structure, here's a small example.
 <div align="center" style="margin: 30px;">
   <img src="docuResources/DB.png" alt="Descripción de la imagen" width="800">
 </div>
+
+### Disclaimer
+
+I am aware that this project has many areas for improvement, such as changing the Spanglish, improving some database queries, optimizing the chat connection, fixing the bug with image registration that allows overwriting avatar images, etc. However, since the main goal of this project was to allow the creation of user accounts that could send and receive messages, I consider the project finished.
+
+### Contact me
+
+If you want to get in touch with me or discuss anything, feel free to contact me via [my LinkedIn](www.linkedin.com/in/pavondaniel)
