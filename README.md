@@ -14,7 +14,11 @@ This development is ready to deploy, meaning that if you want to run it on a ser
 
 To deploy the application, you only need to clone the repository and run the following command:
 
-```$ sudo bash deployChat.sh```
+```
+$ sudo bash deployChat.sh
+```
+
+Once it is deployed, you can connect to the web aplication from [localhost:8090](http://localhost:8090) and to PhpMyAdmin from [localhost:8091](http://localhost:8091)
 
 <div align="center" style="margin: 30px;">
   <img src="docuResources/docker.png" alt="Descripción de la imagen" width="700">
@@ -56,16 +60,24 @@ When a user has a contact added, they can send them messages. In the message cla
   <img src="docuResources/chat.png" alt="Descripción de la imagen" width="600">
 </div>
 
+### Search contacts
+
+Once you've logged in to the page, you'll be able to see all your contacts. Above them, there's a search bar where you can filter by your contact's phone number, in case you're unable to find a friend's contact because you have many! :D
+
+This functionality filters the contacts displayed in the user list using a GET request. I know there are more elegant and efficient ways to do it, but this one seemed like the fastest and easiest at the time of implementing it.
+
+### Database structure
+
 If you want to see the database structure, here's a small example.
 
 <div align="center" style="margin: 30px;">
   <img src="docuResources/DB.png" alt="Descripción de la imagen" width="800">
 </div>
 
-### Disclaimer
+## Disclaimer
 
 I am aware that this project has many areas for improvement, such as changing the Spanglish, improving some database queries, optimizing the chat connection, fixing the bug with image registration that allows overwriting avatar images, etc. However, since the main goal of this project was to allow the creation of user accounts that could send and receive messages, I consider the project finished.
 
-### Contact me
+## Contact me
 
 If you want to get in touch with me or discuss anything, feel free to contact me via [my LinkedIn](www.linkedin.com/in/pavondaniel)
