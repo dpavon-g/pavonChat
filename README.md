@@ -80,4 +80,4 @@ I am aware that this project has many areas for improvement, such as changing th
 
 ## Contact me
 
-If you want to get in touch with me or discuss anything, feel free to contact me via [my LinkedIn](www.linkedin.com/in/pavondaniel)
+If you want to get in touch with me or discuss anything, feel free to contact me via [my LinkedIn](www.linkedin.com/in/pavondaniel) :D
