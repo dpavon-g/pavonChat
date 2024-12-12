@@ -7,6 +7,10 @@ header {
     grid-template-columns: auto auto;
 }
 
+.finder {
+    grid-template-columns: auto auto auto;
+}
+
 header div #avatar {
     width: 70px;
     height: 70px;

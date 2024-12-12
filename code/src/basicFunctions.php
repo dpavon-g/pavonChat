@@ -15,25 +15,46 @@ function setHeader()
         ";
 }
 
-function setHeaderIndex($user) {
+function setHeaderIndex($user, $search = false) {
 
     $avatar = $user["avatar"];
     $url = "static/avatars/${avatar}";
     $username = $user["phoneNumber"];
-    echo "
-            <header>
-                <a href='login.php'><h1 class='nunito'>Pavon Chat</h1></a>
-                <div class='user'>
-                <h3 class='nunito'>${username}</h3>
-                <img id='avatar' src='${url}' alt='Avatar'>
-                <form action='?' method='post'>
-                    <button type='submit' name='LogOut' id='logOut'>
-                        <img src='static/icons/log-out.svg' alt='Logout'>
-                    </button>
-                </form>
-                </div>
-            </header>
-        ";
+    if (!$search) {
+        echo "
+                <header>
+                    <a href='login.php'><h1 class='nunito'>Pavon Chat</h1></a>
+                    <div class='user'>
+                    <h3 class='nunito'>${username}</h3>
+                    <img id='avatar' src='${url}' alt='Avatar'>
+                    <form action='?' method='post'>
+                        <button type='submit' name='LogOut' id='logOut'>
+                            <img src='static/icons/log-out.svg' alt='Logout'>
+                        </button>
+                    </form>
+                    </div>
+                </header>
+            ";
+    }
+    else {
+        echo "
+                <header class='finder'>
+                    <a href='login.php'><h1 class='nunito'>Pavon Chat</h1></a>
+                    <form method='GET' action='?'>
+                        <input type='text' autocomplete='off' name='User' placeholder='Search user' class='basicInput'>
+                    </form>
+                    <div class='user'>
+                    <h3 class='nunito'>${username}</h3>
+                    <img id='avatar' src='${url}' alt='Avatar'>
+                    <form action='?' method='post'>
+                        <button type='submit' name='LogOut' id='logOut'>
+                            <img src='static/icons/log-out.svg' alt='Logout'>
+                        </button>
+                    </form>
+                    </div>
+                </header>
+            ";
+    }
 }
 
 function setFooter()

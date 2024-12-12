@@ -37,7 +37,7 @@ $user = $_SESSION["User"];
 </head>
 
 <body>
-    <?php setHeaderIndex($user) ?>
+    <?php setHeaderIndex($user, true) ?>
     <main>
         <section id="createContact">
             <button class="button" id="openDialog">Create contact</button>
@@ -83,7 +83,13 @@ $user = $_SESSION["User"];
             $contacts = $contactoDB->getContactsById($user["id"]);
             if ($contacts->num_rows > 0) {
                 while ($contact = $contacts->fetch_assoc()) {
-                    drawContact($contact);
+                    if (isset($_GET["User"])) {
+                        if (strpos($contact["phoneNumber"], $_GET["User"]) === 0) {
+                            drawContact($contact);
+                        }
+                    } else {
+                        drawContact($contact);
+                    }
                 }
             }
             ?>
