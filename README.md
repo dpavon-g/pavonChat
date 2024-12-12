@@ -26,14 +26,18 @@ Once it is deployed, you can connect to the web aplication from [localhost:8090]
 
 ## Optimized browser
 
+Initially, you shouldn't have any issues running the application in any browser. However, since the chats are dynamically loaded using a special JavaScript section, there might be cases where this functionality performs less efficiently depending on the browser. To address this, I have tested the application on the following browsers and can tell you which ones offer optimized performance.
+
+They are as follows:
+
 | Browser       | O.S           | Optimized  |
 | ------------- |:-------------:| -----:     |
 | Firefox       | Linux         | :white_check_mark:      |
 | Chrome      | Linux         |   :white_check_mark:      |
-| Opera | linux         |    :white_check_mark:      |
-| Brave | linux         |    :white_check_mark:      |
-| Chrome | windows         |    :x:      |
-| Firefox | windows         |    :white_check_mark:      |
+| Opera | Linux         |    :white_check_mark:      |
+| Brave | Linux         |    :white_check_mark:      |
+| Chrome | Windows         |    :x:      |
+| Firefox | Windows         |    :white_check_mark:      |
 
 ## Documentation
   1. Classes
