@@ -8,9 +8,9 @@
 
 #### The goal of this project is to build a complete messaging application using only MySQL and vanilla PHP, without relying on any frameworks. The application will enable users to send messages to other people efficiently.
 
-## How to develop
+## How to deploy
 
-This development is ready to deploy, meaning that if you want to run it on a server, it's as simple as cloning the repository on a Linux server or machine with Docker installed.
+This development is ready to deploy, this means that if you want to run it on a server, it's as simple as cloning the repository on a Linux server or machine with Docker installed and execute it.
 
 To deploy the application, you only need to clone the repository and run the following command:
 
@@ -24,15 +24,32 @@ Once it is deployed, you can connect to the web aplication from [localhost:8090]
   <img src="docuResources/docker.png" alt="Descripción de la imagen" width="700">
 </div>
 
-## Documentation
+## Optimized browser
 
-### Classes
+| Browser       | O.S           | Optimized  |
+| ------------- |:-------------:| -----:     |
+| Firefox       | Linux         | :white_check_mark:      |
+| Chrome      | Linux         |   :white_check_mark:      |
+| Opera | linux         |    :white_check_mark:      |
+| Brave | linux         |    :white_check_mark:      |
+| Chrome | windows         |    :x:      |
+| Firefox | windows         |    :white_check_mark:      |
+
+## Documentation
+  1. Classes
+  2. Users
+  3. Contacts
+  4. Messages
+  5. Search contacts
+  6. Database structure
+
+### 1. Classes
 
 This application has three core classes: one for users, another for contacts, and another for messages. Each class manages its own database connections. This way, if we ever change the database system, the code remains unaffected.
 
 There is a generic class called DB, which is a dependency for each core class. The DB class handles the connection to any of the tables. This approach makes everything much more modular and independent.
 
-### Users
+### 2. Users
 
 In the users table, we store several pieces of information: the user ID, the username or phone number, their password, and their avatar.
 
@@ -42,7 +59,7 @@ One of the additional features I wanted to add is that passwords are stored full
   <img src="docuResources/signIn.png" alt="Descripción de la imagen" width="400">
 </div>
 
-### Contacts
+### 3. Contacts
 
 When a user wants to send messages to another, they first need to add them to the contacts table. The contacts table will store the contact's first name, last name, username or phone number, the avatar assigned to the user, and the ID of the user who adds the new contact.
 
@@ -52,7 +69,7 @@ Both the ID of the user who adds and the phone number are foreign keys. This ens
   <img src="docuResources/contact.png" alt="Descripción de la imagen" width="600">
 </div>
 
-### Messages
+### 4. Messages
 
 When a user has a contact added, they can send them messages. In the message class, we store the message ID, the sender's ID, the receiver's ID, the date the message is sent (which is automatically set), and the message content.
 
@@ -60,13 +77,13 @@ When a user has a contact added, they can send them messages. In the message cla
   <img src="docuResources/chat.png" alt="Descripción de la imagen" width="600">
 </div>
 
-### Search contacts
+### 5. Search contacts
 
 Once you've logged in to the page, you'll be able to see all your contacts. Above them, there's a search bar where you can filter by your contact's phone number, in case you're unable to find a friend's contact because you have many! :D
 
 This functionality filters the contacts displayed in the user list using a GET request. I know there are more elegant and efficient ways to do it, but this one seemed like the fastest and easiest at the time of implementing it.
 
-### Database structure
+### 6. Database structure
 
 If you want to see the database structure, here's a small example.
 
